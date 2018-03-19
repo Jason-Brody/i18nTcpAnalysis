@@ -1,0 +1,21 @@
+<div class="container-example mat-elevation-z8">
+    
+    <mat-table #table [dataSource]="dataSource" *ngIf="data && data.length">
+  
+      <ng-container *ngFor='let column of columns' matColumnDef="{{column}}" >
+        <mat-header-cell *matHeaderCellDef [ngStyle]="setStyle(column)">{{selectedColumns[column].desc}}</mat-header-cell>
+        <mat-cell *matCellDef="let element" [ngStyle]="setStyle(column)"> {{element[column]}} </mat-cell>
+      </ng-container>
+     
+      <mat-header-row *matHeaderRowDef="columns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: columns;"></mat-row>
+
+      
+    </mat-table>
+    <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+  </div>
+
+
+ 
+    
+  

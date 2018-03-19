@@ -1,0 +1,53 @@
+<div class="container-fluid">
+  <div class="row col-xs-offset-1" *ngIf="config">
+      
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Start Date" [formControl]="startDate"
+              (dateChange)="onDateChange()">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker1" placeholder="End Date" [formControl]='endDate'
+          (dateChange)="onDateChange()">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Region" [(value)]='selectedRegion' (change)='onRegionChange($event)'>
+              <mat-option *ngFor="let option of config.regions" [value]="option">
+                  {{ option.name }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+          <mat-select placeholder="Network" [(value)]='selectedNetwork'>
+              <mat-option  *ngFor="let network of selectedRegion.networks" [value]="network.index_name">
+                  {{ network.description }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+     
+  
+      <mat-form-field *ngIf='isShowDomain'>
+          <mat-select placeholder="Products" [(value)]='selectedProduct' multiple [formControl]='formControl'>
+              <mat-option *ngFor="let product of productList" [value]="product">
+                  {{ product }}
+              </mat-option>
+          </mat-select>
+      </mat-form-field>
+      <mat-slide-toggle color="primary" (change)='toggleChange($event)' [checked]='isShowDomain'>分域名统计</mat-slide-toggle>
+      
+      <button mat-raised-button [disabled]="disabled" color="primary" (click)='getData()'>Refresh</button>
+  </div>
+</div>
+
+<mat-tab-group (selectChange)='selectChange($event)' *ngIf='config'>
+  <mat-tab *ngFor='let type of config.test_types' [label]='type'>
+      <div class="col-lg-6 charts" *ngFor='let counter of config.index_types' >
+          <h3>{{counter.description}}</h3>
+          <app-har-detail (chartClick)='onChartClick($event)' (chartCreate)='onChartCreate($event)' [productList]='selectedProduct' [network]='selectedNetwork' [data]='data' [counterType]="counter.index_name" [country]="selectedRegion" [type]='type' [selectedType]='selectedType' [isLoading]='isLoading' [config]='config' [dateList]='dateList'></app-har-detail>
+      </div>
+  </mat-tab>
+</mat-tab-group>
+<app-datatable [data]='table' [selectedColumns]='columns'></app-datatable>

@@ -1,0 +1,84 @@
+<div class="container-fluid mat-elevation-z8">
+  <div class="row">
+    <div class="col-md-10">
+      <mat-form-field class="col-md-12">
+        <input matInput placeholder="条件过滤,格式 '字段名=值',多个条件使用;分割, 可选字段(id,product,file_type,region,network,status<1=待处理,2=处理中,3=成功,-1=失败> ) "
+          [formControl]="filter" [(ngModel)]='filterStr' (ngModelChange)='onChange($event)'>
+      </mat-form-field>
+    </div>
+    <div class="col-md-2">
+      <mat-form-field style="margin-right:20px">
+        <input matInput [matDatepicker]="picker" placeholder="上传日期" [formControl]="start" (dateChange)='onDateChange($event)'>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </div>
+  <mat-progress-bar *ngIf='isLoading' mode="query"></mat-progress-bar>
+
+
+
+
+  <mat-table #table [dataSource]="dataSource" *ngIf="files && files.length" matSort>
+
+    <ng-container matColumnDef="id">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="region">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>国家</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.region}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="network">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>网络</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.network}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="product">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>产品</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.product}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="file_type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>文件类型</mat-header-cell>
+      <mat-cell *matCellDef="let element" [style.color]="red">{{element.file_type}}</mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>文件状态</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <div class="btn btn-{{element.status | fileStatus:'color'}}">
+          {{element.status | fileStatus}}
+        </div>
+      </mat-cell>
+    </ng-container>
+
+
+    <ng-container matColumnDef="create_time">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>上传日期</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.create_time | date:"MM/dd/yy hh:mm:ss"}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tos_address">
+      <mat-header-cell *matHeaderCellDef>下载文件</mat-header-cell>
+      <mat-cell *matCellDef="let element">
+        <a target='_blank' href="http://tosv.byted.org/obj/ies-i18n-data-singapore{{element.tos_address | regex:'\/\\d{8}\/.+'}}">TOS下载</a>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="info">
+      <mat-header-cell *matHeaderCellDef>其他信息</mat-header-cell>
+      <mat-cell *matCellDef="let element">{{element.info}}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+<!-- http://tosv.byted.org/obj/ies-i18n-data-singapore/20180210/HYPSTAR-ID-7f51a130-f952-45c5-8801-639605a18297.HAR -->

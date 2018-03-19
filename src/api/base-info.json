@@ -1,0 +1,204 @@
+{
+    "products": [
+        {
+            "name":"DOU_YIN"
+        },
+        {
+            "name":"HYPSTAR",
+            "domains":[
+                "api.huoshan.com",
+                "api.hypstar.com",
+                "p16.hypstarcdn.com",
+                "v16.hypstarcdn.com"
+            ]
+        },
+        {
+            "name":"TIKTOK",
+            "domains":[
+                "api.huoshan.com",
+                "api.tiktokv.com",
+                "p16.tiktokcdn.com",
+                "v16.tiktokcdn.com"    
+            ]
+        },
+        {
+            "name":"KWAI",
+            "domains":[
+                "(\\d+\\.){3}\\d+",
+                ".*cdn.kwai.net"
+
+            ]
+        }
+    ],
+    "regions": [
+        {
+            "name": "IN",
+            "networks": [
+                {
+                    "index_name": "JIO",
+                    "description": "JIO"
+                },
+                {
+                    "index_name": "AIRTEL",
+                    "description": "AIRTEL"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "SGP",
+            "networks": [
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "USA",
+            "networks": [
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "CN",
+            "networks": [
+                {
+                    "index_name": "CUCC",
+                    "description": "中国联通"
+                },
+                {
+                    "index_name": "CMCC",
+                    "description": "中国移动"
+                },
+                {
+                    "index_name": "CTCC",
+                    "description": "中国电信"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "ID",
+            "networks": [
+                {
+                    "index_name": "3",
+                    "description": "3"
+                },
+                {
+                    "index_name": "TELKOMSEL",
+                    "description": "TELKOMSEL"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "BR",
+            "networks": [
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        }
+    ],
+    "test_types": [
+        "VIDEO",
+        "IMAGE",
+        "FEED"
+    ],
+    "index_types": [
+        {
+            "index_name": "DNS",
+            "description": "dns连接时长 ms"
+        },
+        {
+            "index_name": "RTT_from_3WHS_a2b",
+            "description": "RTT_FROM_3WHS_A2B"
+        },
+        {
+            "index_name": "RTT_from_3WHS_b2a",
+            "description": "RTT_FROM_3WHS_B2A"
+        },
+        {
+            "index_name": "RTT_full_sz_min_a2b",
+            "description": "RTT_FULL_SZ_MIN_A2B"
+        },
+        {
+            "index_name": "RTT_full_sz_max_a2b",
+            "description": "RTT_FULL_SZ_MAX_A2B"
+        },
+        {
+            "index_name": "RTT_full_sz_avg_a2b",
+            "description": "RTT_FULL_SZ_AVG_A2B"
+        },
+        {
+            "index_name": "initial_window_bytes_a2b",
+            "description": "INITIAL_WINDOW_BYTES_A2B"
+        },
+        {
+            "index_name": "initial_window_bytes_b2a",
+            "description": "INITIAL_WINDOW_BYTES_B2A"
+        },
+        {
+            "index_name": "max_win_adv_a2b",
+            "description": "MAX_WIN_ADV_A2B"
+        },
+        {
+            "index_name": "max_win_adv_b2a",
+            "description": "MAX_WIN_ADV_B2A"
+        },
+        {
+            "index_name": "min_win_adv_a2b",
+            "description": "MIN_WIN_ADV_A2B"
+        },
+        {
+            "index_name": "min_win_adv_b2a",
+            "description": "MIN_WIN_ADV_B2A"
+        },
+        {
+            "index_name": "avg_win_adv_a2b",
+            "description": "AVG_WIN_ADV_A2B"
+        },
+        {
+            "index_name": "avg_win_adv_b2a",
+            "description": "AVG_WIN_ADV_B2A"
+        },
+        {
+            "index_name": "duplicate_acks_a2b",
+            "description": "DUPLICATE_ACKS_A2B"
+        },
+        {
+            "index_name": "duplicate_acks_b2a",
+            "description": "DUPLICATE_ACKS_B2A"
+        },
+        {
+            "index_name": "triple_dupacks_a2b",
+            "description": "TRIPLE_DUPACKS_A2B"
+        },
+        {
+            "index_name": "triple_dupacks_b2a",
+            "description": "TRIPLE_DUPACKS_B2A"
+        },
+        {
+            "index_name": "throughput_a2b",
+            "description": "THROUGHPUT_A2B"
+        },
+        {
+            "index_name": "throughput_b2a",
+            "description": "THROUGHPUT_B2A"
+        }
+    ]
+}

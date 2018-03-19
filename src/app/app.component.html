@@ -1,0 +1,66 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<!-- <app-product-performance></app-product-performance> -->
+
+<div class="example-container" [class.example-is-mobile]="mobileQuery.matches" *ngIf="shouldRun">
+  <mat-toolbar color="primary" class="example-toolbar">
+    <button mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+    <h1 class="example-app-name">{{title}}</h1>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container class="example-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+    <mat-sidenav #snav [mode]="push" [fixedInViewport]="mobileQuery.matches" fixedTopGap="56">
+      <mat-nav-list>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                DashBoard
+              </mat-panel-title>
+
+            </mat-expansion-panel-header>
+            <div>
+                <a mat-list-item routerLink="/dashboard/har">Http</a>
+                <a mat-list-item routerLink="/dashboard/tcp">Tcp</a>
+                <a mat-list-item routerLink="/dashboard/files">文件管理</a>
+            </div>
+           
+          </mat-expansion-panel>
+         
+        </mat-accordion>
+
+        <mat-accordion>
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                常用工具
+              </mat-panel-title>
+
+            </mat-expansion-panel-header>
+            <div>
+                <a mat-list-item routerLink="/tools/map2wl">ES Whilelist Mapping</a>
+                <a mat-list-item routerLink="/welcome/angular.io">Angular Framework</a>
+                <a mat-list-item href="http://www.typescriptlang.org">Typescript Language</a>
+                <a mat-list-item href="http://material.angular.io">Material Component</a>
+            </div>
+           
+          </mat-expansion-panel>
+
+         
+        </mat-accordion>
+
+      </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

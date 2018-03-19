@@ -1,0 +1,125 @@
+{
+    "products": [
+        {
+            "name":"DOU_YIN"
+        },
+        {
+            "name":"HYPSTAR",
+            "domains":[
+                "api.huoshan.com",
+                "api.hypstar.com",
+                "p16.hypstarcdn.com",
+                "v16.hypstarcdn.com"
+            ]
+        },
+        {
+            "name":"TIKTOK",
+            "domains":[
+                "api.huoshan.com",
+                "api.tiktokv.com",
+                "p16.tiktokcdn.com",
+                "v16.tiktokcdn.com"    
+            ]
+        },
+        {
+            "name":"KWAI",
+            "domains":[
+                "(\\d+\\.){3}\\d+",
+                ".*cdn.kwai.net"
+
+            ]
+        }
+    ],
+    "regions": [
+        {
+            "name": "IN",
+            "networks": [
+                {
+                    "index_name": "JIO",
+                    "description": "JIO"
+                },
+                {
+                    "index_name": "AIRTEL",
+                    "description": "AIRTEL"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "ID",
+            "networks": [
+                {
+                    "index_name": "3",
+                    "description": "3"
+                },
+                {
+                    "index_name": "TELKOMSEL",
+                    "description": "TELKOMSEL"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "CN",
+            "networks": [
+                {
+                    "index_name": "CUCC",
+                    "description": "\u4e2d\u56fd\u8054\u901a"
+                },
+                {
+                    "index_name": "CMCC",
+                    "description": "\u4e2d\u56fd\u79fb\u52a8"
+                },
+                {
+                    "index_name": "CTCC",
+                    "description": "\u4e2d\u56fd\u7535\u4fe1"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        }
+    ],
+    "test_types": [
+        "VIDEO",
+        "IMAGE",
+        "FEED"
+    ],
+    "index_types": [
+        {
+            "index_name": "RATE",
+            "description": "\u4f20\u8f93\u901f\u7387 MB/s"
+        },
+        {
+            "index_name": "DURATION",
+            "description": "\u603b\u65f6\u957f ms"
+        },
+        {
+            "index_name": "SIZE",
+            "description": "\u4f20\u8f93\u5927\u5c0f KB"
+        },
+        {
+            "index_name": "CONNECT",
+            "description": "\u8fde\u63a5\u65f6\u957f ms"
+        },
+        {
+            "index_name": "DNS",
+            "description": "dns\u8fde\u63a5\u65f6\u957f ms"
+        },
+        {
+            "index_name": "WAIT",
+            "description": "\u7b49\u5f85\u65f6\u957f ms"
+        },
+        {
+            "index_name": "RECEIVE",
+            "description": "\u4f20\u8f93\u65f6\u957f ms"
+        }
+    ]
+}

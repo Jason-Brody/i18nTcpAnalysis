@@ -1,0 +1,69 @@
+<div class="container-fluid">
+  <div class="row col-xs-offset-1" *ngIf="config">
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Start Date" [formControl]="startDate" (dateChange)="onDataChange()">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker [disabled]='isLoading'></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker1" placeholder="End Date" [formControl]='endDate' (dateChange)="onDataChange()">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1 [disabled]='isLoading'></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-select placeholder="Region" [(value)]='selectedRegion' (change)='onRegionChange($event)' [disabled]='isLoading'>
+        <mat-option *ngFor="let region of config.regions" [value]="region">
+          {{ region.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-select placeholder="Network" [(value)]='selectedNetwork' [disabled]='isLoading'>
+        <mat-option *ngFor="let network of selectedRegion.networks" [value]="network.index_name">
+          {{ network.description }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+
+    <mat-form-field class="products">
+      <mat-select placeholder="Products" [(value)]='selectedProduct' multiple [formControl]='formControl' [disabled]='isLoading'>
+        <mat-option *ngFor="let product of config.products" [value]="product">
+          {{ product.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- <mat-slide-toggle color="primary" (change)='toggleChange($event)' [checked]='isShowDomain'>分域名统计</mat-slide-toggle> -->
+    <!--<button mat-raised-button [disabled]='disabled' color="primary" (click)='getData()'>Refresh</button>-->
+  </div>
+
+  <div class="row">
+    <mat-form-field class="col-lg-12">
+      <mat-chip-list #chipList>
+        <mat-chip *ngFor="let domain of selectedDomain" [selectable]='true' [removable]='true' (remove)="removeDomain(domain)" [disabled]='isLoading'>
+          {{domain}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="域名选择" [matChipInputFor]="chipList" [matChipInputAddOnBlur]="true"
+           [matAutocomplete]='auto' [formControl]='myControl' (matChipInputTokenEnd)='onChipInputEnd($event)'/>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)='onOptionSelect($event)'>
+          <mat-option *ngFor="let option of filteredOptions | async" [value]='option'>
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-chip-list>
+    </mat-form-field>
+  </div>
+</div>
+
+
+<div *ngIf='config'>
+  <div class="col-lg-6 charts" *ngFor='let counter of config.index_types'>
+    <h3>{{counter.description}}</h3>
+    <app-tcp-detail [productList]='selectedProduct' [data]='data' [counterType]='counter.index_name' [country]="selectedRegion?.name"
+      [network]="selectedNetwork" [isLoading]='isLoading' [config]='config' [dateList]='dateList' [selectedDomain]='selectedDomain'></app-tcp-detail>
+  </div>
+</div>

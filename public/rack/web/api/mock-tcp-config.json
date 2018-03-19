@@ -1,0 +1,122 @@
+{
+    "file_types": [
+        "HAR",
+        "PCAP"
+    ],
+    "products": [
+        "DOU_YIN",
+        "INS",
+        "LIKE",
+        "HYPSTAR",
+        "KWAI",
+        "MUSE",
+        "TIKTOK",
+        "FG"
+    ],
+    "regions": [
+        {
+            "name": "CN",
+            "networks": [
+                {
+                    "index_name": "CMCC",
+                    "description": "中国电信"
+                },
+                {
+                    "index_name": "WIFI",
+                    "description": "WIFI"
+                }
+            ]
+        },
+        {
+            "name": "IN",
+            "networks": [
+                {
+                    "index_name": "TEST1",
+                    "description": "印度1"
+                },
+                {
+                    "index_name": "TEST2",
+                    "description": "印度2"
+                }
+            ]
+        }
+    ],
+    "index_types": [
+        {
+            "index_name": "RTT_from_3WHS_a2b",
+            "description": "RTT_from_3WHS_a2b"
+        },
+        {
+            "index_name": "RTT_from_3WHS_b2a",
+            "description": "RTT_from_3WHS_b2a"
+        },
+        {
+            "index_name": "RTT_full_sz_min_a2b",
+            "description": "RTT_full_sz_min_a2b"
+        },
+        {
+            "index_name": "RTT_full_sz_max_a2b",
+            "description": "RTT_full_sz_max_a2b"
+        },
+        {
+            "index_name": "RTT_full_sz_avg_a2b",
+            "description": "RTT_full_sz_avg_a2b"
+        },
+        {
+            "index_name": "initial_window_bytes_a2b",
+            "description": "initial_window_bytes_a2b"
+        },
+        {
+            "index_name": "initial_window_bytes_b2a",
+            "description": "initial_window_bytes_b2a"
+        },
+        {
+            "index_name": "max_win_adv_a2b",
+            "description": "max_win_adv_a2b"
+        },
+        {
+            "index_name": "max_win_adv_b2a",
+            "description": "max_win_adv_b2a"
+        },
+        {
+            "index_name": "min_win_adv_a2b",
+            "description": "min_win_adv_a2b"
+        },
+        {
+            "index_name": "min_win_adv_b2a",
+            "description": "min_win_adv_b2a"
+        },
+        {
+            "index_name": "avg_win_adv_a2b",
+            "description": "avg_win_adv_a2b"
+        },
+        {
+            "index_name": "avg_win_adv_b2a",
+            "description": "avg_win_adv_b2a"
+        },
+        {
+            "index_name": "duplicate_acks_a2b",
+            "description": "duplicate_acks_a2b"
+        },
+        {
+            "index_name": "duplicate_acks_b2a",
+            "description": "duplicate_acks_b2a"
+        },
+        {
+            "index_name": "triple_dupacks_a2b",
+            "description": "triple_dupacks_a2b"
+        },
+        {
+            "index_name": "triple_dupacks_b2a",
+            "description": "triple_dupacks_b2a"
+        },
+        {
+            "index_name": "throughput_a2b",
+            "description": "throughput_a2b"
+        },
+        {
+            "index_name": "throughput_b2a",
+            "description": "throughput_b2a"
+        }
+    ]
+}
